@@ -1,22 +1,12 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.novoda:bintray-release:0.2.4'
-    }
-}
-
 apply plugin: 'com.android.library'
 apply plugin: 'bintray-release'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '25.0.2'
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 24
+        targetSdkVersion 28
     }
 
     buildTypes {
@@ -38,3 +28,4 @@ publish {
     autoPublish = false
     dryRun = false
 }
+
