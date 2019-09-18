@@ -1,5 +1,7 @@
 package net.ypresto.androidtranscoder.engine;
 
+import android.util.Log;
+
 import java.nio.ShortBuffer;
 
 public interface AudioRemixer {
@@ -60,7 +62,11 @@ public interface AudioRemixer {
         @Override
         public void remix(final ShortBuffer inSBuff, final ShortBuffer outSBuff) {
             // Passthrough
-            outSBuff.put(inSBuff);
+            try {
+                outSBuff.put(inSBuff);
+            } catch (Exception e) {
+                Log.e("AudioRemixer", "remix failed: in = " + inSBuff.remaining() + ", out = " + outSBuff.remaining(), e);
+            }
         }
     };
 }
