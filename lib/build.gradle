@@ -1,14 +1,7 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.novoda:bintray-release:0.6.1'
-    }
-}
-
 apply plugin: 'com.android.library'
-apply plugin: 'bintray-release'
+apply plugin: 'maven'
+
+def VERSION='0.4.1'
 
 android {
     compileSdkVersion 28
@@ -28,13 +21,13 @@ android {
     }
 }
 
-publish {
-    groupId = 'net.ypresto.androidtranscoder'
-    artifactId = 'android-transcoder'
-    version = '0.3.0'
-    licences = ['Apache-2.0']
-    website = 'https://github.com/ypresto/android-transcoder'
-    autoPublish = false
-    dryRun = false
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			repository(url: "file://${new File(rootDir, 'maven').absolutePath}")
+			pom.groupId = 'net.ypresto.androidtranscoder'
+			pom.artifactId = 'android-transcoder'
+			pom.version = VERSION
+		}
+	}
 }
-
