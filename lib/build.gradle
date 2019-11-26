@@ -1,5 +1,7 @@
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
+plugins {
+	id 'com.android.library'
+	id 'digital.wup.android-maven-publish' version '3.6.3'
+}
 
 def VERSION='0.3.20190924'
 
@@ -21,13 +23,24 @@ android {
     }
 }
 
-uploadArchives {
+task sourcesJar(type: Jar) {
+	from android.sourceSets.main.java.srcDirs
+	classifier = 'sources'
+}
+
+publishing {
+	publications {
+		mavenAar(MavenPublication) {
+			groupId = 'net.ypresto.androidtranscoder'
+			artifactId = 'android-transcoder'
+			version = VERSION
+			from components.android
+			artifact sourcesJar
+		}
+	}
 	repositories {
-		mavenDeployer {
-			repository(url: "file://${new File(rootDir, 'maven').absolutePath}")
-			pom.groupId = 'net.ypresto.androidtranscoder'
-			pom.artifactId = 'android-transcoder'
-			pom.version = VERSION
+		maven {
+			url = "$rootDir/maven"
 		}
 	}
 }
