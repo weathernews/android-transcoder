@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile project(':lib')
-    compile 'com.android.support:support-core-utils:24.2.0'
+    implementation project(':lib')
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
 }

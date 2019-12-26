@@ -3,14 +3,14 @@ plugins {
 	id 'digital.wup.android-maven-publish' version '3.6.3'
 }
 
-def VERSION='0.3.20190924'
+def VERSION='0.3.20191226'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 28
+        targetSdkVersion 29
     }
 
     buildTypes {
