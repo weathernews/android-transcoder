@@ -3,10 +3,11 @@
   <groupId>net.ypresto.androidtranscoder</groupId>
   <artifactId>android-transcoder</artifactId>
   <versioning>
-    <release>0.3.20190924</release>
+    <release>0.3.20191226</release>
     <versions>
       <version>0.3.20190924</version>
+      <version>0.3.20191226</version>
     </versions>
-    <lastUpdated>20191126054734</lastUpdated>
+    <lastUpdated>20191226042833</lastUpdated>
   </versioning>
 </metadata>
